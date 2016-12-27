@@ -83,7 +83,7 @@ void draw ()
       {
         flameManager.add(enemyArray[i].x, enemyArray[i].y );
         enemyArray[i].x = width ;
-        enemyArray[i].hp();
+        hp=enemyState==3?hp-97.5:hp-39;
       }
       enemyArray[i].display();
       for (int j=1; j<6; j++)
