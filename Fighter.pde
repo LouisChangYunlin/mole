@@ -1,4 +1,5 @@
-class Fighter {
+class Fighter 
+{
   int x ;
   int y ;
   PImage img ; 
@@ -8,28 +9,33 @@ class Fighter {
   private boolean down = false ;
   private boolean left = false ;
   private boolean right = false ;
-
-  Fighter () {
+  private boolean space = false ;
+  Fighter ()
+  {
     img = loadImage("img/fighter.png");
-    speed = 3 ;
+    speed = 8 ;
     x = width - 50 ;
     y = height /2 ;
   }
 
-  void display () {   
-    // ... 
+  void display ()
+  {   
+    image(img, x, y);
   }
 
-  void move () {
+  void move () 
+  {
     if (up    && y - speed > 0      ) y -= speed ;
-    if (down  && y + speed < height ) y += speed ;
-    if (right && x + speed < width  ) x += speed ;
+    if (down  && y + speed < height-img.height ) y += speed ;
+    if (right && x + speed < width-img.width  ) x += speed ;
     if (left  && x - speed > 0 ) x -= speed ;
   }
 
 
-  void keyPressed (int keyCode) {
-    switch (keyCode) {
+  void keyPressed (int keyCode)
+  {
+    switch (keyCode) 
+    {
     case UP    : 
       up = true ;   
       break ;
@@ -43,9 +49,15 @@ class Fighter {
       right = true ;
       break ;
     }
+    if (key==' ')
+    {
+      space=true;
+    }
   }
-  void keyReleased (int keyCode) {
-    switch (keyCode) {
+  void keyReleased (int keyCode) 
+  {
+    switch (keyCode) 
+    {
     case UP    : 
       up =    false ; 
       break ;
@@ -58,6 +70,10 @@ class Fighter {
     case RIGHT : 
       right = false ; 
       break ;
+    }
+    if (key==' ')
+    {
+      space=false;
     }
   }
 }
