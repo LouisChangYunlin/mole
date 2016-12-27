@@ -1,15 +1,19 @@
-class HPBar {
-  int x , y ;
+class HPBar 
+{
+  int x, y ;
   PImage img ;
-  
-  HPBar (int x, int y ,String imgPath){
-    this.x = x ;
-    this.y = y ;
-    img = loadImage(imgPath); 
+
+  HPBar()
+  {
+    x=10;
+    y=10;
+    img = loadImage("img/hp.png");
   }
-  
-  void display(int hp){
-    // display the hp 
+  void display(float hp)
+  {
+    fill(255, 0, 0);
+    stroke(255, 0, 0);
+    rect(19, 10, hp, 30);
+    image(img, x, y);
   }
-  
 }
